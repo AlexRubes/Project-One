@@ -1,10 +1,33 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    position: relative;
+}
+
+h1 {
+    font-size: 2.3rem;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    line-height: 120%;
+    margin-bottom: 25px;
+}
+
 .travel-search {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
 
     background: #eee;
+
+    transition: height 1s ease-out;
+}
+
+.travel-search.hidden {
+    height: 0;
 }
 
 .bird-back {
@@ -13,8 +36,43 @@
     height: 100%;
 }
 
-.search-box {
-    padding: 15px;
-    background: rgba(255,255,255,0.8);
+h1.search-lead {
+    max-width: 460px;
 }
 
+h1.page-logo {
+    position: absolute;
+    font-family: 'Faster One', cursive;
+    font-size: 3.5rem;
+    width: 100%;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: rgba(255,255,255,0.8);
+    border-radius: 15px;
+}
+
+.search-box > input {
+    height: 30px;
+    font-size: 1.4rem;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.search-box > button {
+    height: 45px;
+    margin-left: 10px;
+    width: 45px;
+    font-size: 1rem;
+    font-weight: 900;
+    border-radius: 30px;
+}
+
+.search-box > button:hover {
+    cursor: hand;
+    cursor: pointer;
+    background: #eee;
+}

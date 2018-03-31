@@ -1,21 +1,3 @@
-      
-// //restaurants data pull
-//   $.ajax({
-//     url: "",
-//     method: "GET"
-//   }).then(function(response) {
-//     console.log(response);
-//   });
-
-// //weather data pull
-//   $.ajax({
-//     url: "",
-//     method: "GET"
-//   }).then(function(response) {
-//     console.log(response);
-//   });
-
-
 //click event to get user input sting to google geocoding
   $(".js-submit").on("click", function(event) {
     event.preventDefault();
@@ -34,11 +16,19 @@
         console.log(lat);
         console.log(long);
 
-        ////hotel data pull with lat and long variable included
+        //hotel data pull with lat and long variable included
             $.ajax({
                 url: "https://api.sandbox.amadeus.com/v1.2/hotels/search-circle?apikey=yYOQMsJDsfO5Yk0WU7xgP6vX7YS8H1lC&latitude=" + lat + "&longitude=" + long + "&radius=20&check_in=2018-06-15&check_out=2018-06-16",
                 method: "GET"
             }).then(function(response) {
+                console.log(response);
+            });    
+
+        //weather data pull using city
+            $.ajax({
+                url: "https://api.openweathermap.org/data/2.5/weather?q=" + place +"&appid=9ba90c3ac88ea1ab90059c06b34a2ce1",
+                method: "GET"
+            }).then(function(response) {    
                 console.log(response);
             });    
       });

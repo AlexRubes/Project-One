@@ -33,15 +33,17 @@
                 var valNum = response.main.temp
                 valNum = parseFloat(valNum);
                 console.log(((valNum-273.15)*1.8)+32);
-                $(".js-weather").text(((valNum-273.15)*1.8)+32);                  
+                $(".js-weather-temp").text(((valNum-273.15)*1.8)+32);         
+                $(".js-weather-description").text(response.weather["0"].description);      
 
             });    
         // //restaurants data pull using city, lat, long
         //     $.ajax({
-        //         url: "https://developers.zomato.com/api/v2.1/search?entity_type=city&q=Chicago&count=10&lat=41.8781&lon=87.6298&radius=10&cuisines=55&sort=real_distance",
-        //         method: "GET"
+        //         url: "https://developers.zomato.com/api/v2.1/search?count=4&lat=41.8781&lon=87.6298&radius=20&sort=rating&order=desc",
+        //         method: "GET", 
+        //         headers: {"user-key": "7d02708bbc26f8cf3047e6bc3a0b0cc4"}
         //     }).then(function(response) {    
-        //         console.log("yay res" + response);
+        //         console.log(response);
         //     });    
       });
 

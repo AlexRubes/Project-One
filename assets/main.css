@@ -1,6 +1,7 @@
 /* FONTS */
 
 * {
+    box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -15,7 +16,7 @@ h2 {
 }
 
 h1 {
-    font-size: 2.3rem;
+    font-size: 2rem;
     margin-bottom: 15px;
     line-height: 140%;
 }
@@ -98,21 +99,62 @@ h1.page-logo {
 
 /* TEST results */
 
-.test-travel-results {
-
+.test-travel-results,
+.travel-results {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 960px;
+    margin: 25px auto;
 }
 
-.test-travel-results .hotels {
+.test-travel-results .fullwidth {
+    flex-basis: 100%;
+}
+
+.test-travel-results .list,
+.travel-results .list {
+    flex-basis: 50%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.test-travel-results .hotels a {
+.test-travel-results .list > h1 {
+    flex-basis: 100%;
+    text-align: center;
+}
+
+.test-travel-results .list a {
     display: block;
-    width: 200px;
+    flex-basis: 40%;
+
     padding: 15px;
     border: 1px solid black;
     border-radius: 15px;
     margin: 10px;
+}
+
+.test-travel-results .list a h1,
+.test-travel-results .list a p {
+    border-bottom: none;
+}
+
+.test-travel-results .list a img {
+    width: 100%;
+}
+
+
+@media screen and (max-width: 767px) {
+    .test-travel-results {
+        max-width: 600px;
+    }
+
+    .test-travel-results .list {
+        flex-basis: 50%;
+    }
+
+    .test-travel-results .list a {
+        flex-basis: 100%;
+    }
 }

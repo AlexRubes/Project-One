@@ -49,7 +49,9 @@
         //restaurants data pull using city, lat, long
             $.ajax({
                 url: "https://api.barzz.net/api/search?city=chicago&state=IL&user_key=2de014817647c19e1bd4a957864fabe5",
-                method: "GET"
+                method: "GET",
+                crossDomain: true,
+                dataType: 'json',
             }).then(function(response) {    
                 console.log(response);
             });    

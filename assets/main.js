@@ -47,13 +47,14 @@
 
             });    
         //restaurants data pull using city, lat, long
-            // $.ajax({
-            //     url: "https://developers.zomato.com/api/v2.1/search?count=4&lat=41.8781&lon=87.6298&radius=20&sort=rating&order=desc",
-            //     method: "GET", 
-            //     headers: {"user-key": "7d02708bbc26f8cf3047e6bc3a0b0cc4"}
-            // }).then(function(response) {    
-            //     console.log(response);
-            // });    
+            $.ajax({
+                url: "https://api.barzz.net/api/search?city=chicago&state=IL&user_key=2de014817647c19e1bd4a957864fabe5",
+                method: "GET",
+                crossDomain: true,
+                dataType: 'json',
+            }).then(function(response) {    
+                console.log(response);
+            });    
       });
 
   });

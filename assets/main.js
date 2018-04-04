@@ -18,10 +18,19 @@
 
         //hotel data pull with lat and long variable included
             $.ajax({
-                url: "https://api.sandbox.amadeus.com/v1.2/hotels/search-circle?apikey=yYOQMsJDsfO5Yk0WU7xgP6vX7YS8H1lC&latitude=" + lat + "&longitude=" + long + "&radius=20&check_in=2018-06-15&check_out=2018-06-16",
+                url: "https://api.sandbox.amadeus.com/v1.2/hotels/search-circle?apikey=yYOQMsJDsfO5Yk0WU7xgP6vX7YS8H1lC&latitude=" + lat + "&longitude=" + long + "&radius=10&check_in=2018-06-15&check_out=2018-06-16&currency=USD&number_of_results=4",
                 method: "GET"
             }).then(function(response) {
                 console.log(response);
+
+                console.log(response.results["0"].property_name);
+                console.log(response.results["0"].amenities["0"].description);
+                console.log("http://hotelsearchengine.amadeus.com/hotelSearchEngineBrowser/#SINGLE/propertyCode="+response.results["0"].property_code +"")
+
+                let stayItem = $("<a>").attr("href", "http://hotelsearchengine.amadeus.com/hotelSearchEngineBrowser/#SINGLE/propertyCode="+response.results[1].property_code +"");
+                let stayItemTitle = $("<h2>").text(response.results["0"].property_name);
+                let stayItemDesc = $("<p>").text(response.results["0"].amenities);
+                stayItem.append(stayItemTitle).append(stayItemDesc);
             });    
 
         //weather data pull using city
@@ -32,19 +41,19 @@
                 console.log(response);
                 var valNum = response.main.temp
                 valNum = parseFloat(valNum);
-                console.log(((valNum-273.15)*1.8)+32);
-                $(".js-weather-temp").text(((valNum-273.15)*1.8)+32);         
+                var tempF = ((valNum-273.15)*1.8)+32;
+                $(".js-weather-temp").text(tempF);         
                 $(".js-weather-description").text(response.weather["0"].description);      
 
             });    
-        // //restaurants data pull using city, lat, long
-        //     $.ajax({
-        //         url: "https://developers.zomato.com/api/v2.1/search?count=4&lat=41.8781&lon=87.6298&radius=20&sort=rating&order=desc",
-        //         method: "GET", 
-        //         headers: {"user-key": "7d02708bbc26f8cf3047e6bc3a0b0cc4"}
-        //     }).then(function(response) {    
-        //         console.log(response);
-        //     });    
+        //restaurants data pull using city, lat, long
+            // $.ajax({
+            //     url: "https://developers.zomato.com/api/v2.1/search?count=4&lat=41.8781&lon=87.6298&radius=20&sort=rating&order=desc",
+            //     method: "GET", 
+            //     headers: {"user-key": "7d02708bbc26f8cf3047e6bc3a0b0cc4"}
+            // }).then(function(response) {    
+            //     console.log(response);
+            // });    
       });
 
   });

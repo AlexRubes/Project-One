@@ -167,6 +167,11 @@ h1.page-logo {
     flex-basis: 40%;
 }
 
+.list a {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .blocks a:hover,
 .list a:hover {
     transform: translate(-5px, -5px);
@@ -207,6 +212,7 @@ h1.page-logo {
     padding-bottom: 5px;
     font-weight: 600;
     border-bottom-left-radius: 15px;
+    min-width: 130px;
 }
 
 

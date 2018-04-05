@@ -51,9 +51,10 @@
                 url: "https://api.barzz.net/api/search?city=chicago&state=IL&user_key=2de014817647c19e1bd4a957864fabe5",
                 method: "GET",
                 crossDomain: true,
-                dataType: 'json',
-            }).then(function(response) {    
-                console.log(response);
+            }).then(function(response) { 
+                
+                let data = JSON.parse(response);
+                console.log(data.success);
             });    
       });
 

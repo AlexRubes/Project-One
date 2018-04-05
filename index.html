@@ -14,7 +14,7 @@
 <body>
     <h1 class="page-logo">TRIP-THANG</h1>
 
-    <div class="travel-search">
+    <div class="travel-search js-travel-search">
         <video playsinline autoplay muted loop poster="./assets/plane-still.jpg">
             <source src="./assets/plane.mp4" type="video/mp4">
         </video>
@@ -25,17 +25,21 @@
         </div>
         <div class="search-box">
             <input type="text" class="js-main-input">
-            <button class="js-submit">GO</button>
+            <button class="js-submit" type="submit">GO</button>
         </div>
+    </div>
+
+    <div class="search-repeat js-repeat-search">
+        <p>Search again?</p>
     </div>
 
     <div class="travel-results">
 
         <div class="weather fullwidth">
-            <h1>Weather: <span class="js-weather-temp"></span>° and <span class="js-weather-description"></span></h1>
+            <h1>Weather: <span class="js-weather-temp"></span>°, <span class="js-weather-description"></span></h1>
         </div>
 
-        <div class="js-restaurants blocks">
+        <div class="blocks">
 
             <h1>Restaurants</h1>
             <div class="js-restaurants">

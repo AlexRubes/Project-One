@@ -32,13 +32,42 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 
     /* background: #eee; */
 
-    transition: height 1s ease-out;
+    height: 100vh;
+    transition: all 1s ease-out;
     opacity: 1;
 }
+
+.travel-search.hidden {
+    height: 0;
+    opacity: 0;
+}
+
+.search-repeat {
+    background: #eee;
+    padding: 10px;
+    margin-bottom: 25px;
+}
+
+.search-repeat:hover {
+    background: #5c99cf;
+    cursor: pointer;
+}
+
+.search-repeat p {
+    text-align: center;
+}
+
+.search-repeat:hover p {
+    color: white;
+}
+
+.search-repeat:hover {
+    opacity: 0.8;
+}
+
 
 .travel-search > video {
     z-index: -1;
@@ -51,11 +80,6 @@ h1 {
     -moz-transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
-}
-
-.travel-search.hidden {
-    height: 0;
-    opacity: 0;
 }
 
 .bird-back {
@@ -204,6 +228,11 @@ h1.page-logo {
     margin-bottom: 0;
     color: black;
     border-bottom: none !important;
+}
+
+.blocks > div a p,
+.list > div a p {
+    padding-top: 5px;
 }
 
 .blocks > div a img {

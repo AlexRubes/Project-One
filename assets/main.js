@@ -1,13 +1,26 @@
-//click event to get user input sting to google geocoding
-  $(".js-submit").on("click", function(event) {
+// trigger init on button click
+$(".js-submit").on("click", function(event) {
+    init();
+});
+
+// trigger init on enter keyup
+$(document).keypress(function(e) {
+    if(e.which == 13) {
+        init();
+    }
+});
+
+// ...the actual program that does the work
+function init() {
     event.preventDefault();
+    $('.js-status').text('Working...');
     var place = $(".js-main-input").val().trim();
 
-  //geocoding data pull to get lat and long
+    //geocoding data pull to get lat and long
     $.ajax({
         url: "https://maps.googleapis.com/maps/api/geocode/json?address="+ place +"&key=AIzaSyAru-oavpiTSJBC9fHeKNA7OZasJFa15eA",
         method: "GET"
-      }).then(function(response) {
+        }).then(function(response) {
         console.log(response);
         
         //create variables for lat and long to use for remaining 3 apis
@@ -20,6 +33,9 @@
         console.log(long);
         console.log(city);
         console.log(state);
+
+        $('.js-travel-search').addClass('hidden');
+        $('h1.page-logo').fadeOut();
 
         //hotel data pull with lat and long variable included
         $.ajax({
@@ -35,8 +51,8 @@
             
             $('.js-hotels').empty();
             for (let i = 0; i < response.results.length; i++) {
-                let stayItem = $("<a>").attr("href", "http://hotelsearchengine.amadeus.com/hotelSearchEngineBrowser/#SINGLE/propertyCode="+response.results[i].property_code +"");
-                let stayItemPrice = $("<h3>").text("$" + response.results[i].total_price.amount + "/night");
+                let stayItem = $("<a>").attr("href", "http://hotelsearchengine.amadeus.com/hotelSearchEngineBrowser/#SINGLE/propertyCode="+response.results[i].property_code +"").attr("target","blank");
+                let stayItemPrice = $("<h3>").text("$" + Math.trunc(response.results[i].total_price.amount) + "/night");
                 let stayItemTitle = $("<h2>").text(response.results[i].property_name);
                 let stayItemDesc = $("<p>").text(response.results[i].amenities[0].description + ", " + response.results[i].amenities[1].description);
                 stayItem.append(stayItemPrice).append(stayItemTitle).append(stayItemDesc);
@@ -59,21 +75,31 @@
         });    
 
         //restaurants data pull using city, lat, long
-            $.ajax({
-                url: "https://api.barzz.net/api/search?city="+city+"&state="+state+"&user_key=2de014817647c19e1bd4a957864fabe5",
-                method: "GET",
-                crossDomain: true,
-            }).then(function(response) { 
-                
-                let data = JSON.parse(response);
-                console.log(data.success);
+        $.ajax({
+            url: "https://api.barzz.net/api/search?city="+city+"&state="+state+"&user_key=2de014817647c19e1bd4a957864fabe5",
+            method: "GET",
+            crossDomain: true,
+        }).then(function(response) { 
+            
+            let data = JSON.parse(response);
+            console.log(data.success);
 
-                console.log(data.success.results["0"].Name);
-                console.log(data.success.results["0"].Bar_Image);
-                console.log(data.success.results["0"].Bar_Website);
-                console.log(data.success.results["0"].Type);
+            console.log(data.success.results["0"].Name);
+            console.log(data.success.results["0"].Bar_Image);
+            console.log(data.success.results["0"].Bar_Website);
+            console.log(data.success.results["0"].Type);
 
-            });    
-      });
+        });    
 
-  });
+    });
+
+};
+
+
+// trigger init on button click
+$(".js-repeat-search").on("click", function(event) {
+    $('.js-travel-search').removeClass('hidden');
+    $('h1.page-logo').fadeIn();
+    $('.js-status').text('Type a location and find some info on it, y’all.');
+});
+

@@ -13,8 +13,13 @@
         //create variables for lat and long to use for remaining 3 apis
         var lat = response.results["0"].geometry.location.lat;
         var long = response.results["0"].geometry.location.lng;
+        var city = response.results["0"].address_components["0"].long_name;
+        var state = response.results["0"].address_components["2"].long_name;
+
         console.log(lat);
         console.log(long);
+        console.log(city);
+        console.log(state);
 
         //hotel data pull with lat and long variable included
             $.ajax({
@@ -48,13 +53,19 @@
             });    
         //restaurants data pull using city, lat, long
             $.ajax({
-                url: "https://api.barzz.net/api/search?city=chicago&state=IL&user_key=2de014817647c19e1bd4a957864fabe5",
+                url: "https://api.barzz.net/api/search?city="+city+"&state="+state+"&user_key=2de014817647c19e1bd4a957864fabe5",
                 method: "GET",
                 crossDomain: true,
             }).then(function(response) { 
                 
                 let data = JSON.parse(response);
                 console.log(data.success);
+
+                console.log(data.success.results["0"].Name);
+                console.log(data.success.results["0"].Bar_Image);
+                console.log(data.success.results["0"].Bar_Website);
+                console.log(data.success.results["0"].Type);
+
             });    
       });
 

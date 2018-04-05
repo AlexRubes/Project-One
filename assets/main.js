@@ -1,3 +1,7 @@
+// initially hide the results
+$('.travel-results').hide();
+$('.js-repeat-search').hide();
+
 // trigger init on button click
 $(".js-submit").on("click", function(event) {
     init();
@@ -34,6 +38,8 @@ function init() {
         console.log(city);
         console.log(state);
 
+        $('.travel-results').fadeIn();
+        $('.js-repeat-search').fadeIn();
         $('.js-travel-search').addClass('hidden');
         $('h1.page-logo').fadeOut();
 

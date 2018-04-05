@@ -139,6 +139,14 @@ h1.page-logo {
 
 .blocks {
     flex-basis: 50%;
+}
+
+.list {
+    flex: 0 1 325px;
+}
+
+.blocks > div {
+    flex-basis: 50%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -150,58 +158,59 @@ h1.page-logo {
     text-align: center;
 }
 
-.blocks a,
-.list a {
+.blocks > div a,
+.list > div a {
     overflow: hidden;
     display: block;
     text-decoration: none;
     margin: 10px;
     padding-bottom: 10px;
 
-    transition: transform 0.3s;
+    transition: border 0.2s;
     box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.2);
     border-radius: 15px;
 }
 
-.blocks a {
+.blocks > div a {
     flex-basis: 40%;
 }
 
-.list a {
+.list > div a {
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
-.blocks a:hover,
-.list a:hover {
-    transform: translate(-5px, -5px);
+.blocks > div a,
+.list > div a {
+    border: 2px solid transparent;
 }
 
-.blocks a h2,
-.list a h2 {
+.blocks > div a:hover,
+.list > div a:hover {
+    border: 2px solid black;
+}
+
+.blocks > div a h2,
+.list > div a h2 {
     font-weight: 900;
 }
 
-.blocks a h2,
-.blocks a p,
-.list a h2,
-.list a h3,
-.list a p {
+.blocks > div a h2,
+.blocks > div a p,
+.list > div a h2,
+.list > div a h3,
+.list > div a p {
     padding: 10px 10px 0;
     margin-bottom: 0;
     color: black;
     border-bottom: none !important;
 }
 
-.blocks a img {
+.blocks > div a img {
     width: 100%;
 }
 
-.list a h2 {
-    display: inline-block;
-}
-
-.list a h3 {
+.list > div a h3 {
     float: right;
     display: inline-block;
     color: white;

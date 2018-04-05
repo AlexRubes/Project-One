@@ -97,11 +97,12 @@ function init() {
 
             $('.js-restaurants').empty();
             for (let i = 0; i < 4 ; i++) {
-                let foodItem = $("<a>").attr("href", data.success.results[i].Bar_Website).attr("target","blank");
+                let foodItem = $("<a>").attr("href", "http://"+data.success.results[i].Bar_Website+"").attr("target","blank");
                 let foodItemTitle = $("<h2>").text(data.success.results[i].Name);
                 let foodItemDesc = $("<p>").text(data.success.results[i].Type);
+                let foodItemImg = $("<img>").attr("src", data.success.results[i].Bar_Image);
                 
-                foodItem.append(foodItemTitle).append(foodItemDesc);
+                foodItem.append(foodItemImg).append(foodItemTitle).append(foodItemDesc);
                 console.log("HERE I AM" + foodItem);
                 $('.js-restaurants').append(foodItem);
             }

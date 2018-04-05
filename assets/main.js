@@ -41,7 +41,7 @@
                 console.log(response);
                 var valNum = response.main.temp
                 valNum = parseFloat(valNum);
-                var tempF = ((valNum-273.15)*1.8)+32;
+                var tempF = Math.trunc(((valNum-273.15)*1.8)+32);
                 $(".js-weather-temp").text(tempF);         
                 $(".js-weather-description").text(response.weather["0"].description);      
 

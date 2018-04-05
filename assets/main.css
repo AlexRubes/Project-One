@@ -11,6 +11,7 @@ body {
 
 h1,
 h2,
+h3,
 p {
     font-family: 'Raleway', sans-serif;
     line-height: 120%;
@@ -105,17 +106,19 @@ h1.page-logo {
     font-size: 1rem;
     font-weight: 900;
     border-radius: 30px;
+    letter-spacing: 1px;
+    border: none;
 }
 
 .search-box > button:hover {
     cursor: hand;
     cursor: pointer;
-    background: #eee;
+    background: #5c99cf;
+    color: white;
 }
 
 /* TEST results */
 
-.test-travel-results,
 .travel-results {
     display: flex;
     justify-content: center;
@@ -124,72 +127,99 @@ h1.page-logo {
     margin: 25px auto;
 }
 
-.test-travel-results .fullwidth {
+.travel-results .fullwidth {
     flex-basis: 100%;
+    margin-bottom: 25px;
 }
 
-.test-travel-results .weather h1,
-.test-travel-results .weather h2 {
+.travel-results .weather h1,
+.travel-results .weather h2 {
     text-align: center;
 }
 
-.test-travel-results .list,
-.travel-results .list {
+.blocks {
     flex-basis: 50%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.test-travel-results .list > h1 {
+.blocks > h1,
+.list > h1 {
     flex-basis: 100%;
     text-align: center;
 }
 
-.test-travel-results .list a {
+.blocks a,
+.list a {
     overflow: hidden;
     display: block;
-    flex-basis: 40%;
-
     text-decoration: none;
-    box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.5);
-    border-radius: 15px;
     margin: 10px;
     padding-bottom: 10px;
+
     transition: transform 0.3s;
+    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.2);
+    border-radius: 15px;
 }
 
-.test-travel-results .list a:hover {
+.blocks a {
+    flex-basis: 40%;
+}
+
+.blocks a:hover,
+.list a:hover {
     transform: translate(-5px, -5px);
 }
 
-.test-travel-results .list a h2 {
+.blocks a h2,
+.list a h2 {
     font-weight: 900;
 }
 
-.test-travel-results .list a h2,
-.test-travel-results .list a p {
+.blocks a h2,
+.blocks a p,
+.list a h2,
+.list a h3,
+.list a p {
     padding: 10px 10px 0;
     margin-bottom: 0;
     color: black;
     border-bottom: none !important;
 }
 
-.test-travel-results .list a img {
+.blocks a img {
     width: 100%;
+}
+
+.list a h2 {
+    display: inline-block;
+}
+
+.list a h3 {
+    float: right;
+    display: inline-block;
+    color: white;
+    background: black;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: 600;
+    border-bottom-left-radius: 15px;
 }
 
 
 @media screen and (max-width: 767px) {
-    .test-travel-results {
+    .travel-results {
         max-width: 600px;
     }
 
-    .test-travel-results .list {
+    .blocks {
         flex-basis: 50%;
     }
 
-    .test-travel-results .list a {
+    .blocks a {
         flex-basis: 100%;
     }
 }

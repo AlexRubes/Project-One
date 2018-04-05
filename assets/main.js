@@ -95,6 +95,16 @@ function init() {
             console.log(data.success.results["0"].Bar_Website);
             console.log(data.success.results["0"].Type);
 
+            $('.js-restaurants').empty();
+            for (let i = 0; i < 4 ; i++) {
+                let foodItem = $("<a>").attr("href", data.success.results[i].Bar_Website).attr("target","blank");
+                let foodItemTitle = $("<h2>").text(data.success.results[i].Name);
+                let foodItemDesc = $("<p>").text(data.success.results[i].Type);
+                
+                foodItem.append(foodItemTitle).append(foodItemDesc);
+                console.log("HERE I AM" + foodItem);
+                $('.js-restaurants').append(foodItem);
+            }
         });    
 
     });

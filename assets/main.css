@@ -151,13 +151,18 @@ h1.page-logo {
     margin: 25px auto;
 }
 
-.travel-results .fullwidth {
-    flex-basis: 100%;
+.city {
+    flex-basis: 1 0 30%;
     margin-bottom: 25px;
 }
 
-.travel-results .weather h1,
-.travel-results .weather h2 {
+.weather {
+    flex-basis: 60%;
+    margin-bottom: 25px;
+}
+
+.weather h1,
+.weather h2 {
     text-align: center;
 }
 
@@ -250,7 +255,8 @@ h1.page-logo {
     padding-bottom: 5px;
     font-weight: 600;
     border-bottom-left-radius: 15px;
-    min-width: 130px;
+    min-width: 115px;
+    text-align: center;
 }
 
 

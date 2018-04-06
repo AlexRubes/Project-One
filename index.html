@@ -25,15 +25,20 @@
         </div>
         <div class="search-box">
             <input type="text" class="js-main-input">
-            <button class="js-submit" type="submit">GO</button>
+            <button class="js-submit travel-button" type="submit">GO</button>
         </div>
     </div>
 
     <div class="search-repeat js-repeat-search">
+        <p class="page-logo">TRIP-THANG</p>
         <p>Search again?</p>
     </div>
 
     <div class="travel-results">
+
+        <div class="add-to-list">
+            <button class="js-addtolist travel-button addtolist">+</button>
+        </div>
 
         <div class="city">
             <p>You searched:</p>
@@ -41,12 +46,13 @@
         </div>
 
         <div class="weather">
-            <h1>Weather: <span class="js-weather-temp"></span>°, <span class="js-weather-description"></span></h1>
+            <p>Weather:</p> 
+            <h1><span class="js-weather-temp"></span>°, <span class="js-weather-description"></span></h1>
         </div>
 
         <div class="blocks">
 
-            <h1>Restaurants</h1>
+            <h1>Restaurants:</h1>
             <div class="js-restaurants">
                 <a href="">
                         <img src="http://lorempixel.com/400/300/food/" alt="">
@@ -76,7 +82,7 @@
         </div>
 
         <div class="list">
-            <h1>Hotels</h1>
+            <h1>Hotels:</h1>
             <div class="js-hotels">
                 <a href="">
                     <h3>$200</h3>
@@ -115,7 +121,12 @@
                 </a>
             </div>
         </div>
+
+        <!-- inline styles because weeee!!! -->
+        <p class="credits">Built by Ramzi Dreessen, Jorge Hurt, Raj Patel and Alejandra Rubalcava</p>
     </div>
+
+    
 
     <script src="./assets/main.js"></script>
 </body>

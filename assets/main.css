@@ -36,19 +36,21 @@ h1 {
     /* background: #eee; */
 
     height: 100vh;
-    transition: all 1s ease-out;
+    transition: all 0.8s ease;
     opacity: 1;
 }
 
 .travel-search.hidden {
     height: 0;
     opacity: 0;
+    transition: all 1.3s ease;
 }
 
 .search-repeat {
+    position: relative;
     background: #eee;
-    padding: 10px;
-    margin-bottom: 25px;
+    padding: 4px;
+    overflow-x: hidden;
 }
 
 .search-repeat:hover {
@@ -57,7 +59,10 @@ h1 {
 }
 
 .search-repeat p {
+    position: absolute;
+    width: 100%;
     text-align: center;
+    top: 15px;
 }
 
 .search-repeat:hover p {
@@ -68,6 +73,26 @@ h1 {
     opacity: 0.8;
 }
 
+p.page-logo {
+    top: initial;
+    position: relative;
+    display: block;
+    font-size: 2rem;
+    text-align: left;
+    padding-bottom: 4px;
+}
+
+.page-logo {
+    font-family: 'Faster One', cursive;
+}
+
+h1.page-logo {
+    position: absolute;
+    text-align: center;
+    color: white;
+    font-size: 3.5rem;
+    width: 100%;
+}
 
 .travel-search > video {
     z-index: -1;
@@ -99,31 +124,22 @@ h1 {
     color: white;
 }
 
-h1.page-logo {
-    position: absolute;
-    text-align: center;
-    font-family: 'Faster One', cursive;
-    color: white;
-    font-size: 3.5rem;
-    width: 100%;
-}
-
 .search-box {
     display: flex;
     align-items: center;
-    padding: 15px;
+    padding: 10px;
     background: rgba(255,255,255,0.3);
     border-radius: 15px;
 }
 
 .search-box > input {
-    height: 30px;
-    font-size: 1.4rem;
+    height: 44px;
+    font-size: 1.8rem;
     padding-left: 5px;
     padding-right: 5px;
 }
 
-.search-box > button {
+button.travel-button {
     height: 45px;
     margin-left: 10px;
     width: 45px;
@@ -134,7 +150,19 @@ h1.page-logo {
     border: none;
 }
 
-.search-box > button:hover {
+.add-to-list button.travel-button {
+    font-size: 4rem;
+    font-weight: 300;
+    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.3);
+    line-height: 40%;
+    margin-top: 17px;
+}
+
+.add-to-list button.travel-button.rotated {
+    transform: rotate(45deg);
+}
+
+button.travel-button:hover {
     cursor: hand;
     cursor: pointer;
     background: #5c99cf;
@@ -147,18 +175,22 @@ h1.page-logo {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    max-width: 960px;
-    margin: 25px auto;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background: linear-gradient(135deg, rgba(255,255,255,1) 0%,rgba(84,163,231,0.2) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
-.travel-results .fullwidth {
-    flex-basis: 100%;
+.city,
+.weather {
+    align-self: flex-end;
+    padding: 10px 25px;
     margin-bottom: 25px;
 }
 
-.travel-results .weather h1,
-.travel-results .weather h2 {
-    text-align: center;
+.weather {
+    flex-basis: 458px;
+    flex-shrink: 0;
+    padding-top: 5px;
 }
 
 .blocks {
@@ -191,7 +223,7 @@ h1.page-logo {
     padding-bottom: 10px;
 
     transition: border 0.2s;
-    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.3);
     border-radius: 15px;
 }
 
@@ -206,6 +238,7 @@ h1.page-logo {
 
 .blocks > div a,
 .list > div a {
+    background: white;
     border: 2px solid transparent;
 }
 
@@ -250,17 +283,63 @@ h1.page-logo {
     padding-bottom: 5px;
     font-weight: 600;
     border-bottom-left-radius: 15px;
-    min-width: 130px;
+    min-width: 115px;
+    text-align: center;
+}
+
+p.credits {
+    text-align: center; 
+    flex-basis: 100%;
+    padding: 60px 10px 10px;
 }
 
 
 @media screen and (max-width: 767px) {
-    .travel-results {
-        max-width: 600px;
+    .search-repeat {
+        display: flex;
+        flex-direction: column;
     }
 
-    .blocks {
-        flex-basis: 50%;
+    .search-repeat p {
+        position: relative !important;
+        text-align: center !important;
+        top: initial !important;
+        padding: 10px;
+    }
+
+    .travel-results > div {
+        flex-basis: 100% !important;
+    }
+
+    .city,
+    .weather {
+        padding: 0 15px;
+    }
+
+    .city,
+    .weather,
+    .add-to-list {
+        text-align: center;
+    }
+
+    .add-to-list:after {
+        content: "Tap to add to list";
+        font-family: 'Raleway', sans-serif;
+        width: 100%;
+        text-align: center;
+        color: #54a3e7;
+        font-weight: 600;
+        display: block;
+        margin: 10px auto 30px;
+        order: 2;
+    }
+
+    .add-to-list button.travel-button {
+        margin-left: 0;
+    }
+
+    .list {
+        margin-top: 25px;
     }
 
     .blocks a {

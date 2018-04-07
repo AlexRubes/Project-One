@@ -2,25 +2,25 @@
 $('.travel-results').hide();
 $('.js-repeat-search').hide();
 
-// trigger init on button click
+// trigger search on button click
 $(".js-submit").on("click", function(event) {
     init();
 });
 
-// trigger init on enter keyup
+// trigger search on enter keyup
 $(document).keypress(function(e) {
     if(e.which == 13) {
         init();
     }
 });
 
-// ...the actual program that does the work
+// ...the actual search program
 function init() {
     event.preventDefault();
     $('.js-status').text('Working...');
     var place = $(".js-main-input").val().trim();
 
-    //geocoding data pull to get lat and long
+    //get lat and long from Google Geocoding API
     $.ajax({
         url: "https://maps.googleapis.com/maps/api/geocode/json?address="+ place +"&key=AIzaSyAru-oavpiTSJBC9fHeKNA7OZasJFa15eA",
         method: "GET"
@@ -37,11 +37,13 @@ function init() {
         console.log(long);
         console.log(city);
         console.log(state);
-
+        
+        // after Google geocoding, start showing results
         $('.travel-results').fadeIn();
         $('.js-repeat-search').fadeIn();
         $('.js-travel-search').addClass('hidden');
         $('h1.page-logo').fadeOut();
+        $('.js-city').text(place);
 
         //hotel data pull with lat and long variable included
         $.ajax({
@@ -53,7 +55,7 @@ function init() {
             console.log(response.results["0"].property_name);
             console.log(response.results["0"].amenities["0"].description);
             console.log(response.results["0"].total_price.amount);
-            console.log("http://hotelsearchengine.amadeus.com/hotelSearchEngineBrowser/#SINGLE/propertyCode="+response.results["0"].property_code +"")
+            console.log("http://hotelsearchengine.amadeus.com/hotelSearchEngineBrowser/#SINGLE/propertyCode="+response.results["0"].property_code +"");
             
             $('.js-hotels').empty();
             for (let i = 0; i < response.results.length; i++) {
@@ -72,7 +74,7 @@ function init() {
             method: "GET"
         }).then(function(response) {    
             console.log(response);
-            var valNum = response.main.temp
+            var valNum = response.main.temp;
             valNum = parseFloat(valNum);
             var tempF = Math.trunc(((valNum-273.15)*1.8)+32);
             $(".js-weather-temp").text(tempF);         
@@ -103,7 +105,6 @@ function init() {
                 let foodItemImg = $("<img>").attr("src", data.success.results[i].Bar_Image);
                 
                 foodItem.append(foodItemImg).append(foodItemTitle).append(foodItemDesc);
-                console.log("HERE I AM" + foodItem);
                 $('.js-restaurants').append(foodItem);
             }
         });    
@@ -113,7 +114,7 @@ function init() {
 };
 
 
-// trigger init on button click
+// reset the search when clicking "repeat search"
 $(".js-repeat-search").on("click", function(event) {
     $('.js-travel-search').removeClass('hidden');
     $('h1.page-logo').fadeIn();

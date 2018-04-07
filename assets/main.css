@@ -157,7 +157,7 @@ button.travel-button {
     box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.3);
     line-height: 40%;
     margin-top: 17px;
-    transition: all 0.5s ease-in;
+    transition: background 0.3s, rotate 0.3s ease-in;
 }
 
 .add-to-list button.travel-button.rotated {
@@ -278,6 +278,7 @@ button.travel-button:hover {
 
 .blocks > div a div.img {
     height: 100px;
+    image-rendering: pixelated;
     background-size: cover;
     background-position: center;
 }
@@ -320,14 +321,13 @@ p.credits {
     overflow: hidden;
     position: absolute;
     z-index: 1;
-    transition: all 0.3s;
+    border-radius: 15px;
     /* height: 74px; */
 }
 
 .bucketlist:hover > div {
     height: auto;
-    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.3);
-    border-radius: 15px;
+    box-shadow: 0px 0px 70px 0px rgba(0,0,0,0.4);
 }
 
 .bucketlist p {
@@ -337,8 +337,11 @@ p.credits {
 .bucketlist > div h1 {
     padding: 5px 15px;
     margin-bottom: 0;
-    background: white;
     width: 235px;
+}
+
+.bucketlist:hover >div h1 {
+    background: white;
 }
 
 .bucketlist > div h1:first-of-type {
@@ -413,11 +416,20 @@ p.credits {
 
     .bucketlist {
         text-align: center;
-        display: flex;
-        justify-content: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    .bucketlist p {
+        padding-left: 0;
     }
 
     .bucketlist > div {
+        width: 100%;
         text-align: center;
+    }
+
+    .bucketlist > div h1 {
+        width: auto;
     }
 }

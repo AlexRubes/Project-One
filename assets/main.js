@@ -102,7 +102,7 @@ function init() {
                 let foodItem = $("<a>").attr("href", "http://"+data.success.results[i].Bar_Website+"").attr("target","blank");
                 let foodItemTitle = $("<h2>").text(data.success.results[i].Name);
                 let foodItemDesc = $("<p>").text(data.success.results[i].Type);
-                let foodItemImg = $("<img>").attr("src", data.success.results[i].Bar_Image);
+                let foodItemImg = $("<div>").addClass("img").css("background-image", "url(" + data.success.results[i].Bar_Image + ")");
                 
                 foodItem.append(foodItemImg).append(foodItemTitle).append(foodItemDesc);
                 $('.js-restaurants').append(foodItem);
@@ -136,12 +136,14 @@ $(".js-repeat-search").on("click", function(event) {
   let bucketList = firebase.database();
   
   //if the user clicks on the save to list button, take the name of the city that is in the div
-  $('js-addtolist').on('click', function() {
-      let cityName = $('js-city').val().trim();
+  $('.js-addtolist').on('click', function() {
+      let cityName = $('.js-city').text().trim();
 
       let newCity = {
           name: cityName,
       }
+
+      console.log(newCity);
 
       //push newCity to firebase to store
       bucketList.ref().push(newCity);
@@ -154,7 +156,7 @@ $(".js-repeat-search").on("click", function(event) {
         let cityChild = childSnapshot.val().name;
 
         //push newCity to dom
-      $('js-bucketlist').append(cityChild);
+      $('.js-bucketlist').append(cityChild);
 
       });
 

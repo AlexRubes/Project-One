@@ -17,13 +17,21 @@ $(document).keypress(function(e) {
     }
 });
 
+let list = JSON.parse(localStorage.getItem("citylist"));
+// Checks to see if the list exists in localStorage and is an array currently
+// If not, set a local list variable to an empty array
+// Otherwise list is our current list of todos
+if (!Array.isArray(list)) {
+    list = [];
+    }
+
 // write saved list of cities to page
 function writeCityList() {
     $(".js-bucketlist").empty();
     let cityList = JSON.parse(localStorage.getItem("citylist"));
     
     if (!Array.isArray(cityList)) {
-      cityList = [];
+      cityList = []; 
     }
   
     // render our city list to the page
@@ -142,12 +150,12 @@ $(".js-repeat-search").on("click", function(event) {
  
 //if the user clicks on the save to list button, take the name of the city that is in the div
 $('.js-addtolist').on('click', function() {
-    let cityList = JSON.parse(localStorage.getItem("citylist"));
-    cityName = $('.js-city').text().trim();
+    //let cityList = JSON.parse(localStorage.getItem("citylist"));
+    let cityName = $('.js-city').text().trim();
 //   cityName = cityName.charAt(0).toUpperCase() + cityName.substr(1);
-    cityList.push(cityName);
+    list.push(cityName);
     
-    localStorage.setItem("citylist", JSON.stringify(cityList));
+    localStorage.setItem("citylist", JSON.stringify(list));
     
     writeCityList();
 });

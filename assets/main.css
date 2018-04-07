@@ -12,7 +12,8 @@ body {
 h1,
 h2,
 h3,
-p {
+p,
+.add-to-list:after {
     font-family: 'Raleway', sans-serif;
     line-height: 120%;
 }
@@ -156,6 +157,7 @@ button.travel-button {
     box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.3);
     line-height: 40%;
     margin-top: 17px;
+    transition: all 0.5s ease-in;
 }
 
 .add-to-list button.travel-button.rotated {
@@ -181,14 +183,14 @@ button.travel-button:hover {
 }
 
 .city,
-.weather {
+.weather,
+.bucketlist {
     align-self: flex-end;
     padding: 10px 25px;
     margin-bottom: 25px;
 }
 
 .weather {
-    flex-basis: 458px;
     flex-shrink: 0;
     padding-top: 5px;
 }
@@ -268,8 +270,10 @@ button.travel-button:hover {
     padding-top: 5px;
 }
 
-.blocks > div a img {
-    width: 100%;
+.blocks > div a div.img {
+    height: 100px;
+    background-size: cover;
+    background-position: center;
 }
 
 .list > div a h3 {
@@ -324,7 +328,6 @@ p.credits {
 
     .add-to-list:after {
         content: "Tap to add to list";
-        font-family: 'Raleway', sans-serif;
         width: 100%;
         text-align: center;
         color: #54a3e7;

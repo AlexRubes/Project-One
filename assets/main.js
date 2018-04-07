@@ -121,7 +121,6 @@ $(".js-repeat-search").on("click", function(event) {
     $('.js-status').text('Type a location and find some info on it, y’all.');
 });
 
-<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyAmPk6G2aZUCmsp-6gacVkszdNSYmzYjRU",
@@ -137,8 +136,8 @@ $(".js-repeat-search").on("click", function(event) {
   let bucketList = firebase.database();
   
   //if the user clicks on the save to list button, take the name of the city that is in the div
-  $('').on('click', function() {
-      let cityName = $('').val().trim();
+  $('js-addtolist').on('click', function() {
+      let cityName = $('js-city').val().trim();
 
       let newCity = {
           name: cityName,
@@ -155,9 +154,7 @@ $(".js-repeat-search").on("click", function(event) {
         let cityChild = childSnapshot.val().name;
 
         //push newCity to dom
-      $('').append(cityChild);
+      $('js-bucketlist').append(cityChild);
 
       });
-
-  });
 

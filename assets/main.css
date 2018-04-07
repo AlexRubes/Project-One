@@ -162,6 +162,10 @@ button.travel-button {
     transition: background 0.3s, rotate 0.3s ease-in;
 }
 
+.add-to-list button.travel-button:focus {
+    outline:0;
+}
+
 .add-to-list button.travel-button.rotated {
     transform: rotate(45deg);
 }
@@ -315,7 +319,7 @@ p.credits {
     overflow: hidden;
     position: relative;
     padding-top: 0;
-    flex-basis: 193px;
+    flex-basis: 245px;
     min-height: 71px;
     margin-bottom: 40px;
 }

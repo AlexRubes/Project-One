@@ -7,13 +7,13 @@ writeCityList();
 
 // trigger search on button click
 $(".js-submit").on("click", function(event) {
-    init();
+    init($(".js-main-input").val().trim());
 });
 
 // trigger search on enter keyup
 $(document).keypress(function(e) {
     if(e.which == 13) {
-        init();
+        init($(".js-main-input").val().trim());
     }
 });
 
@@ -42,10 +42,10 @@ function writeCityList() {
 }
 
 // ...the actual search program
-function init() {
+function init(input) {
     event.preventDefault();
     $('.js-status').text('Working...');
-    var place = $(".js-main-input").val().trim();
+    var place = input;
 
     //get lat and long from Google Geocoding API
     $.ajax({
@@ -156,5 +156,16 @@ $('.js-addtolist').on('click', function() {
     localStorage.setItem("citylist", JSON.stringify(list));
     
     writeCityList();
+
+    // make bucketlist blink
+    $('.js-bucketlist').fadeOut(100).fadeIn(100);
 });
 
+// when user click on city in list, search that city
+$(document).on('click', '.js-bucketlist h1', function() {
+    console.log("clicked");
+    $('.js-city').fadeOut(100).fadeIn(100);
+    $('.weather h1').fadeOut(100).fadeIn(100);
+    $('.js-city').text($(this).text());
+    init($(this).text());
+});

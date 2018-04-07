@@ -30,7 +30,7 @@ function writeCityList() {
     for (let j = 0; j < cityList.length; j++) {
       let p = $("<h1>").text(cityList[j]).attr("data-index", j);
       $(".js-bucketlist").prepend(p);
-  };
+    };
 }
 
 // ...the actual search program
@@ -41,9 +41,9 @@ function init() {
 
     //get lat and long from Google Geocoding API
     $.ajax({
-        url: "https://maps.googleapis.com/maps/api/geocode/json?address="+ place +"&key=AIzaSyAru-oavpiTSJBC9fHeKNA7OZasJFa15eA",
-        method: "GET"
-        }).then(function(response) {
+    url: "https://maps.googleapis.com/maps/api/geocode/json?address="+ place +"&key=AIzaSyAru-oavpiTSJBC9fHeKNA7OZasJFa15eA",
+    method: "GET"
+    }).then(function(response) {
         console.log(response);
         
         //create variables for lat and long to use for remaining 3 apis
@@ -98,7 +98,6 @@ function init() {
             var tempF = Math.trunc(((valNum-273.15)*1.8)+32);
             $(".js-weather-temp").text(tempF);         
             $(".js-weather-description").text(response.weather["0"].description);      
-
         });    
 
         //restaurants data pull using city, lat, long
@@ -127,11 +126,8 @@ function init() {
                 $('.js-restaurants').append(foodItem);
             }
         });    
-
     });
-
 };
-
 
 // reset the search when clicking "repeat search"
 $(".js-repeat-search").on("click", function(event) {
@@ -144,7 +140,7 @@ $(".js-repeat-search").on("click", function(event) {
 $('.js-addtolist').on('click', function() {
     let cityList = JSON.parse(localStorage.getItem("citylist"));
     cityName = $('.js-city').text().trim();
-//   cityName = cityName.charAt(0).toUpperCase() + cityName.substr(1);
+    //cityName = cityName.charAt(0).toUpperCase() + cityName.substr(1);
     cityList.push(cityName);
     
     localStorage.setItem("citylist", JSON.stringify(cityList));

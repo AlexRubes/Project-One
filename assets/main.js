@@ -129,16 +129,16 @@ $(".js-repeat-search").on("click", function(event) {
         cityList = [];
       }
       
-      let cityName = $('.js-city').text().trim();
+      cityName = $('.js-city').text().trim();
       cityList.push(cityName);
       
       localStorage.setItem("citylist", JSON.stringify(cityList));
 
-        // render our insideList todos to the page
-        for (var j = 0; j < cityList.length; i++) {
-            var p = $("<h1>").text(cityList[i]);
-            $(".js-bucketlist").prepend(p);
-        }
+        // render our city list to the page
+        for (var j = 0; j < cityList.length; j++) {
+            var p = $("<h1>").text(cityList[j]);
+            $(".js-bucketlist").append(p);
+        };
 
   });
 

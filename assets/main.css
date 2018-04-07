@@ -175,8 +175,6 @@ button.travel-button:hover {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    max-width: 960px;
-    margin: 0 auto;
     padding-top: 25px;
     padding-bottom: 25px;
     background: linear-gradient(135deg, rgba(255,255,255,1) 0%,rgba(84,163,231,0.2) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
@@ -307,10 +305,6 @@ p.credits {
         text-align: center !important;
         top: initial !important;
         padding: 10px;
-    }
-
-    .travel-results {
-        max-width: 600px;
     }
 
     .travel-results > div {

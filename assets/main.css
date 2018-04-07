@@ -52,6 +52,7 @@ h1 {
     background: #eee;
     padding: 4px;
     overflow-x: hidden;
+    transition: background 0.2s;
 }
 
 .search-repeat:hover {
@@ -157,6 +158,7 @@ button.travel-button {
     box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.3);
     line-height: 40%;
     margin-top: 17px;
+    margin-right: 15px;
     transition: background 0.3s, rotate 0.3s ease-in;
 }
 
@@ -216,10 +218,15 @@ button.travel-button:hover {
     justify-content: center;
 }
 
-.blocks > h1,
-.list > h1 {
+.blocks > h2,
+.list > h2 {
     flex-basis: 100%;
     text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+    padding-bottom: 10px;
 }
 
 .blocks > div a,
@@ -404,6 +411,7 @@ p.credits {
 
     .add-to-list button.travel-button {
         margin-left: 0;
+        margin-right: 0;
     }
 
     .list {

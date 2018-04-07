@@ -121,3 +121,40 @@ $(".js-repeat-search").on("click", function(event) {
     $('.js-status').text('Type a location and find some info on it, y’all.');
 });
 
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAmPk6G2aZUCmsp-6gacVkszdNSYmzYjRU",
+    authDomain: "travelthang-e2e1d.firebaseapp.com",
+    databaseURL: "https://travelthang-e2e1d.firebaseio.com",
+    projectId: "travelthang-e2e1d",
+    storageBucket: "travelthang-e2e1d.appspot.com",
+    messagingSenderId: "749794421348"
+  };
+  
+  firebase.initializeApp(config);
+
+  let bucketList = firebase.database();
+  
+  //if the user clicks on the save to list button, take the name of the city that is in the div
+  $('js-addtolist').on('click', function() {
+      let cityName = $('js-city').val().trim();
+
+      let newCity = {
+          name: cityName,
+      }
+
+      //push newCity to firebase to store
+      bucketList.ref().push(newCity);
+      return false;
+
+    //   //is this needed to add children into firebase???
+    //   bucketList.ref().on('child_added', function(childSnapshot, prevChildKey) {
+    //     console.log(childSnapshot.val());
+
+        let cityChild = childSnapshot.val().name;
+
+        //push newCity to dom
+      $('js-bucketlist').append(cityChild);
+
+      });
+

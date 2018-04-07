@@ -147,9 +147,9 @@ $(".js-repeat-search").on("click", function(event) {
       bucketList.ref().push(newCity);
       return false;
 
-      //is this needed to add children into firebase???
-      bucketList.ref().on('child_added', function(childSnapshot, prevChildKey) {
-        console.log(childSnapshot.val());
+    //   //is this needed to add children into firebase???
+    //   bucketList.ref().on('child_added', function(childSnapshot, prevChildKey) {
+    //     console.log(childSnapshot.val());
 
         let cityChild = childSnapshot.val().name;
 

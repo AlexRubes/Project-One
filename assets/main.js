@@ -124,22 +124,31 @@ $(".js-repeat-search").on("click", function(event) {
   //if the user clicks on the save to list button, take the name of the city that is in the div
   $('.js-addtolist').on('click', function() {
       let cityList = JSON.parse(localStorage.getItem("citylist"));
+      cityName = $('.js-city').text().trim();
+      cityList.push(cityName);
+      
+      localStorage.setItem("citylist", JSON.stringify(cityList));
+      
+      putOnPage();
+  });
+
+  function putOnPage() {
+      $(".js-bucketlist").empty();
+      let cityList = JSON.parse(localStorage.getItem("citylist"));
       
       if (!Array.isArray(cityList)) {
         cityList = [];
       }
-      
-      let cityName = $('.js-city').text().trim();
-      cityList.push(cityName);
-      
-      localStorage.setItem("citylist", JSON.stringify(cityList));
+    
+      // render our city list to the page
+      for (let j = 0; j < cityList.length; j++) {
+        let p = $("<h1>").text(cityList[j]).attr("data-index", j);
+        $(".js-bucketlist").prepend(p);
+    };
 
-        // render our insideList todos to the page
-        for (var j = 0; j < cityList.length; i++) {
-            var p = $("<h1>").text(cityList[i]);
-            $(".js-bucketlist").prepend(p);
-        }
+  }
 
-  });
+  // render our todos on page load
+  putOnPage();
 
 

@@ -277,7 +277,7 @@ button.travel-button:hover {
 }
 
 .blocks > div a div.img {
-    height: 100px;
+    height: 125px;
     image-rendering: pixelated;
     background-size: cover;
     background-position: center;

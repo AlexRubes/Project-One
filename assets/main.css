@@ -182,6 +182,12 @@ button.travel-button:hover {
     background: linear-gradient(135deg, rgba(255,255,255,1) 0%,rgba(84,163,231,0.2) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
+.top {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .city,
 .weather,
 .bucketlist {
@@ -311,12 +317,19 @@ p.credits {
         padding: 10px;
     }
 
+    .travel-results,
+    .top {
+        display: block;
+    }
+
     .travel-results > div {
         flex-basis: 100% !important;
     }
 
+    .bucketlist,
     .city,
     .weather {
+        flex-basis: 100% !important;
         padding: 0 15px;
     }
 
@@ -324,6 +337,7 @@ p.credits {
     .weather,
     .add-to-list {
         text-align: center;
+        padding-bottom: 2px;
     }
 
     .add-to-list:after {

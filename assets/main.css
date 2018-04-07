@@ -308,8 +308,8 @@ p.credits {
     position: relative;
     padding-top: 0;
     flex-basis: 193px;
-    min-height: 73px;
-    margin-bottom: 45px;
+    min-height: 71px;
+    margin-bottom: 40px;
 }
 
 .bucketlist:hover {
@@ -330,36 +330,26 @@ p.credits {
     border-radius: 15px;
 }
 
-.bucketlist > div p,
+.bucketlist p {
+    padding-left: 15px;
+}
+
 .bucketlist > div h1 {
     padding: 5px 15px;
-}
-
-.bucketlist > div p {
-    padding-bottom: 0px;
-}
-
-.bucketlist:hover > div p,
-.bucketlist:hover > div h1 {
+    margin-bottom: 0;
     background: white;
     width: 235px;
+}
+
+.bucketlist > div h1:first-of-type {
+    padding-top: 0;
 }
 
 .bucketlist:hover > div h1:hover {
     color: white;
     background: #54a3e7;
-}
-
-
-.bucketlist > div h1 {
-    margin-bottom: 0;
-    padding: 1px 15px;
-}
-
-.bucketlist > div h1:hover {
     cursor: pointer;
 }
-
 
 
 @media screen and (max-width: 767px) {

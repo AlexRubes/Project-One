@@ -1,6 +1,9 @@
-// initially hide the results
+// initially hide the results section and repeat search button
 $('.travel-results').hide();
 $('.js-repeat-search').hide();
+
+//initially write cities
+writeCityList();
 
 // trigger search on button click
 $(".js-submit").on("click", function(event) {
@@ -13,6 +16,22 @@ $(document).keypress(function(e) {
         init();
     }
 });
+
+// write saved list of cities to page
+function writeCityList() {
+    $(".js-bucketlist").empty();
+    let cityList = JSON.parse(localStorage.getItem("citylist"));
+    
+    if (!Array.isArray(cityList)) {
+      cityList = [];
+    }
+  
+    // render our city list to the page
+    for (let j = 0; j < cityList.length; j++) {
+      let p = $("<h1>").text(cityList[j]).attr("data-index", j);
+      $(".js-bucketlist").prepend(p);
+  };
+}
 
 // ...the actual search program
 function init() {
@@ -121,34 +140,16 @@ $(".js-repeat-search").on("click", function(event) {
     $('.js-status').text('Type a location and find some info on it, y’all.');
 });
  
-  //if the user clicks on the save to list button, take the name of the city that is in the div
-  $('.js-addtolist').on('click', function() {
-      let cityList = JSON.parse(localStorage.getItem("citylist"));
-      cityName = $('.js-city').text().trim();
-      cityList.push(cityName);
-      
-      localStorage.setItem("citylist", JSON.stringify(cityList));
-      
-      putOnPage();
-  });
-
-  function putOnPage() {
-      $(".js-bucketlist").empty();
-      let cityList = JSON.parse(localStorage.getItem("citylist"));
-      
-      if (!Array.isArray(cityList)) {
-        cityList = [];
-      }
+//if the user clicks on the save to list button, take the name of the city that is in the div
+$('.js-addtolist').on('click', function() {
+    let cityList = JSON.parse(localStorage.getItem("citylist"));
+    cityName = $('.js-city').text().trim();
+//   cityName = cityName.charAt(0).toUpperCase() + cityName.substr(1);
+    cityList.push(cityName);
     
-      // render our city list to the page
-      for (let j = 0; j < cityList.length; j++) {
-        let p = $("<h1>").text(cityList[j]).attr("data-index", j);
-        $(".js-bucketlist").prepend(p);
-    };
-
-  }
-
-  // render our todos on page load
-  putOnPage();
+    localStorage.setItem("citylist", JSON.stringify(cityList));
+    
+    writeCityList();
+});
 
 

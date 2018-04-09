@@ -94,6 +94,8 @@ h1.page-logo {
     color: white;
     font-size: 3.5rem;
     width: 100%;
+    line-height: 80%;
+    padding-top: 10px;
 }
 
 .travel-search > video {
@@ -367,6 +369,9 @@ p.credits {
 
 
 @media screen and (max-width: 767px) {
+    .search-box > input {
+        width: 200px;
+    }
     .search-repeat {
         display: flex;
         flex-direction: column;

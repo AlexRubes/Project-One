@@ -9,7 +9,7 @@ To properly use our application, please download “Cross-Origin Resource Sharin
 
 To visit the main website use the following link, https://alexrubes.github.io/Project-One/
 
-For the reason if the Amedeus API key expires, replace the api link with this: https://api.sandbox.amadeus.com/v1.2/hotels/search-circle?apikey=RSNrav3uKFujMiYCBry4ADhrzEzCXK3E&latitude=
+For the reason that if the Amadeus API key expires, replace the api link with this: https://api.sandbox.amadeus.com/v1.2/hotels/search-circle?apikey=RSNrav3uKFujMiYCBry4ADhrzEzCXK3E&latitude=
 
 At this time you will be able to freely search any location you would like.
 
